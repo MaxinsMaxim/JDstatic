@@ -3,22 +3,23 @@
  */
 
 var kirin = (function () {
+    var isStanderBrowser = !!window.getComputedStyle;
+
     /**
      * 类数组转换为数组
-     * @param likeAry 类数组
-     * @returns {Array} 数组
+     * @param likeAry
+     * @returns {*} 数组
      */
     function listToArray(likeAry) {
-        var ary = [];
-        try {
-            ary = Array.prototype.slice.call(likeAry);
-
-        } catch (e) {
+        if (isStanderBrowser) {
+            return Array.prototype.slice.call(likeAry);
+        } else {
+            var ary = [];
             for (var i = 0; i < likeAry.length; i++) {
                 ary[ary.length] = likeAry[i];
             }
+            return ary;
         }
-        return ary;
     }
 
     /*  JSON字符串转换为为JSON对象
@@ -55,12 +56,8 @@ var kirin = (function () {
         t += ele.offsetTop;
         var par = ele.offsetParent;
         while (par) {
-            if (navigator.userAgent.indexOf('MSIE 8.0') === -1) {
-                l += par.clientLeft;
-                t += par.clientTop;
-            }
-            l += par.offsetLeft;
-            t += par.offsetTop;
+            l += par.offsetLeft + par.clientLeft;
+            t += par.offsetTop + par.clientTop;
             par = par.offsetParent;
         }
         return {left: l, top: t};
@@ -74,7 +71,7 @@ var kirin = (function () {
      */
     function getCss(ele, attr) {
         var val = null;
-        if (window.getComputedStyle) {
+        if (isStanderBrowser) {
             val = window.getComputedStyle(ele)[attr];
         } else { // ie
             if (attr == 'opacity') {
@@ -124,7 +121,7 @@ var kirin = (function () {
      */
     function getElesByClass(className, context) {
         context = context || document;
-        if (context.getElementsByClassName) {
+        if (isStanderBrowser) {
             return listToArray(context.getElementsByClassName(className));
         }
         // for ielow
@@ -168,7 +165,7 @@ var kirin = (function () {
     function css(ele) {
         var secondParam = arguments[1];
         var thirdParam = arguments[2];
-        if (typeof secondParam == 'String') {
+        if (typeof secondParam == 'string') {
             if (typeof thirdParam == 'undefined') {
                 return getCss(ele, secondParam);
             }
@@ -203,9 +200,141 @@ var kirin = (function () {
         return new RegExp('(^| +)' + className + '( +|$)').test(ele.className);
     }
 
+    /**
+     * 给元素添加类
+     * @param ele
+     * @param className
+     */
     function addClass(ele, className) {
-        var classAry = className.replace(/(^ +| +$)/g, '').split('/ +/');
+        var classAry = className.replace(/(^ +| +$)/g, '').split(/ +/);
+        for (var i = 0; i < classAry.length; i++) {
+            if (!hasClass(ele, classAry[i])) {
+                ele.className += ' ' + classAry[i];
+            }
+        }
     }
+
+    /**
+     * 给元素移除类
+     * @param ele
+     * @param className
+     */
+    function removeClass(ele, className) {
+        var classAry = className.replace(/^ +| +$/g, '').split(/ +/);
+        for (var i = 0; i < classAry.length; i++) {
+            var curClass = classAry[i];
+            if (hasClass(ele, curClass)) {
+                var reg = new RegExp('(^| +)' + curClass + '( +|$)', 'g');
+                ele.className = ele.className.replace(reg, ' ');
+            }
+        }
+    }
+
+    /**
+     * 获取上一个哥哥元素节点
+     * @param ele
+     * @returns {*}
+     */
+    function prev(ele) {
+        if (isStanderBrowser) {
+            return ele.previousElementSibling;
+        }
+        var pre = ele.previousSibling;
+        while (pre && pre.nodeType != 1) {
+            pre = pre.previousSibling;
+        }
+        return pre;
+    }
+
+    /**
+     * 获取下一个弟弟元素节点
+     * @param ele
+     * @returns {*}
+     */
+    function next(ele) {
+        if (isStanderBrowser) {
+            return ele.nextElementSibling;
+        }
+        var nex = ele.nextSibling;
+        while (nex && nex.nodeType != 1) {
+            nex = nex.nextSibling;
+        }
+        return nex;
+    }
+
+    /**
+     * 获取所有哥哥元素节点
+     * @param ele
+     * @returns {Array.<*>}
+     */
+    function prevAll(ele) {
+        var ary = [];
+        var pre = prev(ele);
+        while (pre) {
+            ary.push(pre);
+            pre = prev(pre);
+        }
+        return ary.reverse();
+    }
+
+    /**
+     * 获取所有弟弟元素节点
+     * @param ele
+     * @returns {Array}
+     */
+    function nextAll(ele) {
+        var ary = [];
+        var nex = next(ele);
+        while (nex) {
+            ary.push(nex);
+            nex = next(nex);
+        }
+        return ary;
+    }
+
+    /**
+     * 获取所有兄弟元素节点
+     * @param ele
+     * @returns {Array.<*>}
+     */
+    function siblings(ele) {
+        return prevAll(ele).concat(nextAll(ele));
+    }
+
+    /**
+     * 获取当前元素的索引
+     * @param ele
+     * @returns {Number}
+     */
+    function index(ele) {
+        return prevAll(ele).length;
+    }
+
+
+    function children(ele, tagName) {
+        var ary = [];
+        if (isStanderBrowser) {
+            ary = listToArray(ele.children);
+        } else {
+            var childs = ele.childNodes;
+            for (var i = 0; i < childs.length; i++) {
+                if (childs[i].nodeType == 1) {
+                    ary.push(childs[i]);
+                }
+            }
+        }
+
+        if (typeof tagName == 'string') {
+            for (var i = 0; i < ary.length; i++) {
+                if (ary[i].nodeName !== tagName.toUpperCase()) {
+                    ary.splice(i, 1);
+                    i--;
+                }
+            }
+        }
+        return ary;
+    }
+
 
     return {
         listToArray: listToArray,
@@ -214,9 +343,18 @@ var kirin = (function () {
         offset: offset,
         getCss: getCss,
         setCss: setCss,
-        getElesByClass: getElesByClass,
         css: css,
+        getElesByClass: getElesByClass,
         getRandom: getRandom,
-        hasClass: hasClass
+        hasClass: hasClass,
+        addClass: addClass,
+        removeClass: removeClass,
+        prev: prev,
+        next: next,
+        prevAll: prevAll,
+        nextAll: nextAll,
+        siblings: siblings,
+        index: index,
+        children: children
     }
 })();

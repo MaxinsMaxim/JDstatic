@@ -7,3 +7,13 @@ searchInput.onfocus = function () {
 searchInput.onblur = function () {
     shelper.style.display = 'none';
 }
+
+var searchFix = document.getElementById('search');
+window.onscroll = function () {
+    var scrollTop = kirin.win('scrollTop');
+    if (scrollTop > 650) {
+        kirin.addClass(searchFix, 'search-fix');
+    } else {
+        kirin.removeClass(searchFix, 'search-fix');
+    }
+}
