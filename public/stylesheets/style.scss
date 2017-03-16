@@ -573,3 +573,75 @@ a:hover {
         }
     }
 }
+
+.fs {
+    position: relative;
+    .fs-inner {
+        position: relative;
+        width: 1190px;
+        height: 480px;
+        margin: 0 auto;
+        background-color: #f6f6f6;
+        .fs-left, .fs-center {
+            float: left;
+            height: 100%;
+        }
+        .fs-right {
+            float: right;
+            height: 100%;
+        }
+        .fs-left {
+            width: 190px;
+            margin-right: 10px;
+            ul.cate-menu {
+                overflow: hidden;
+                padding: 15px 0;
+                height: 450px;
+                background-color: #6e6568;
+                color: #fff;
+                .cate-menu-item {
+                    overflow: hidden;
+                    padding-left: 12px;
+                    height: 30px;
+                    line-height: 30px;
+                    font-size: 0;
+                    a {
+                        font-size: 14px;
+                        color: #fff;
+                    }
+                    a:hover {color: #c81623;}
+                    .cate-menu-line {
+                        padding: 0 4px;
+                        font-size: 12px;
+                    }
+                }
+                .cate_menu_item_on {
+                    background-color: #999395;
+                }
+            }
+        }
+        .fs-center {
+            width: 790px;
+            .slider-main {
+                position: relative;
+                margin-bottom: 10px;
+                height: 340px;
+                border: 1px solid #ccc;
+            }
+            .slider-extend {
+                /*margin-left: -10px;*/
+                height: 130px;
+                background: url('../images/slider/slider_extend.png') no-repeat;
+            }
+        }
+        .fs-right {
+            margin-left: 10px;
+            width: 190px;
+            background: #fff url("../images/slider/right_card.png") no-repeat;
+        }
+    }
+}
+
+#ab {
+    color: #fff
+}

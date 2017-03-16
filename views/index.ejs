@@ -13,9 +13,33 @@
 <!-- 头部搜索区域 -->
 <%- include common/top-search.ejs %>
 
-<div style="width: 100%; height: 600px; background-color: lightpink"></div>
-<div style="width: 100%; height: 500px; background-color: #ccc"></div>
-<div style="width: 100%; height: 400px; background-color: lavender"></div>
+<!-- 分类导航  -->
+<div class="fs" style="height: 2000px;">
+    <div class="fs-inner">
+        <div class="fs-left">
+            <ul class="cate-menu">
+                <li class="cate-menu-item" data-index="1">
+                    <a href="javascript:void 0;">家用电器</a>
+                </li>
+                <li class="cate-menu-item" data-index="2">
+                    <a href="javascript:void 0;">手机</a>
+                    <span class="cate-menu-line">/</span>
+                    <a href="javascript:void 0;">运营商</a>
+                    <span class="cate-menu-line">/</span>
+                    <a href="javascript:void 0;">数码</a>
+                </li>
+            </ul>
+        </div>
+        <!-- 轮播图 -->
+        <div class="fs-center">
+            <div class="slider-main">
+                <ul></ul>
+            </div>
+            <div class="slider-extend"></div>
+        </div>
+        <div class="fs-right"></div>
+    </div>
+</div>
 </body>
 </html>
 <script src="/javascripts/utils.js"></script>
