@@ -1,12 +1,13 @@
 var express = require('express');
 var path = require('path');
-// var favicon = require('serve-favicon');
+var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var slider_api = require('./routes/slider_api');
 
 var app = express();
 
@@ -21,9 +22,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(favicon(__dirname + '/public/images/favicon.ico'));
 
 app.use('/', index);
 app.use('/users', users);
+//轮播图接口
+app.use('/api/slider', slider_api);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

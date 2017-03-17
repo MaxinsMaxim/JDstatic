@@ -503,7 +503,64 @@ a:hover {
         position: relative;
         margin-bottom: 10px;
         height: 340px;
-        border: 1px solid #ccc; }
+        text-align: center; }
+        .fs .fs-inner .fs-center .slider-main .inner {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          background: url("/images/slider/loading.gif") no-repeat center;
+          background-size: 40px 40px;
+          cursor: pointer; }
+          .fs .fs-inner .fs-center .slider-main .inner img {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            vertical-align: top;
+            opacity: 0;
+            z-index: 0; }
+        .fs .fs-inner .fs-center .slider-main .focusList {
+          display: inline-block;
+          z-index: 20;
+          margin-top: 296px;
+          position: relative;
+          padding: 2px 8px;
+          border-radius: 12px;
+          background-color: rgba(255, 255, 255, 0.4); }
+          .fs .fs-inner .fs-center .slider-main .focusList li {
+            display: inline-block;
+            margin: 0 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 100%;
+            background-color: #fff; }
+          .fs .fs-inner .fs-center .slider-main .focusList li.cur {
+            background-color: #f10215; }
+        .fs .fs-inner .fs-center .slider-main .slide-left, .fs .fs-inner .fs-center .slider-main .slide-right {
+          display: none;
+          position: absolute;
+          z-index: 1;
+          top: 50%;
+          margin-top: -30px;
+          width: 30px;
+          height: 60px;
+          background-color: #333;
+          background-color: rgba(0, 0, 0, 0.1);
+          line-height: 60px;
+          text-align: center;
+          color: #fff; }
+        .fs .fs-inner .fs-center .slider-main .slide-left:hover, .fs .fs-inner .fs-center .slider-main .slide-right:hover {
+          background-color: rgba(0, 0, 0, 0.5);
+          color: #fff; }
+        .fs .fs-inner .fs-center .slider-main .slide-left {
+          left: 0; }
+        .fs .fs-inner .fs-center .slider-main .slide-right {
+          right: 0; }
+      .fs .fs-inner .fs-center .slider-main:hover .slide-left,
+      .fs .fs-inner .fs-center .slider-main:hover .slide-right {
+        display: block; }
       .fs .fs-inner .fs-center .slider-extend {
         /*margin-left: -10px;*/
         height: 130px;

@@ -27,7 +27,6 @@ window.onscroll = function () {
     var cate_menu_item = cate_menu.getElementsByClassName('cate-menu-item');
     for (var i = 0; i < cate_menu_item.length; i++) {
         var curItem = cate_menu_item[i];
-        curItem.index = i;
         curItem.onmouseover = function () {
             kirin.addClass(this, 'cate_menu_item_on');
         };
