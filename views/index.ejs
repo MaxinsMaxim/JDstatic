@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="cssnimations">
+<html lang="zh-CN" class="cssnimations">
 <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/reset.css'/>
@@ -13,25 +13,76 @@
 <!-- 头部搜索区域 -->
 <%- include common/top-search.ejs %>
 
-<!-- 分类导航  -->
-<div class="fs" style="height: 2000px;">
+<div class="fs">
     <div class="fs-inner">
+        <!-- 分类导航  -->
         <div class="fs-left">
             <ul class="cate-menu">
-                <li class="cate-menu-item" data-index="1">
+                <% for (var i = 0; i < 7; i++) { %>
+                <li class="cate-menu-item">
                     <a href="javascript:void 0;">家用电器</a>
+                    <span class="cate-menu-line">/</span>
+                    <a href="javascript:void 0;">电脑办公</a>
                 </li>
-                <li class="cate-menu-item" data-index="2">
-                    <a href="javascript:void 0;">手机</a>
+                <li class="cate-menu-item">
+                    <a href="javascript:void 0;">运动</a>
                     <span class="cate-menu-line">/</span>
-                    <a href="javascript:void 0;">运营商</a>
+                    <a href="javascript:void 0;">户外</a>
                     <span class="cate-menu-line">/</span>
-                    <a href="javascript:void 0;">数码</a>
+                    <a href="javascript:void 0;">钟表</a>
+                </li>
+                <% } %>
+                <li class="cate-menu-item" data-index="15">
+                    <a href="javascript:void 0;">家用电器</a>
+                    <span class="cate-menu-line">/</span>
+                    <a href="javascript:void 0;">电脑办公</a>
                 </li>
             </ul>
+            <div class="cate-pop" style="display: none">
+                <% for (var j = 0; j < 7; j++) { %>
+                <%- include common/side-nav-con.ejs %>
+                <% } %>
+                <div class="cate-part clearfix" id="cate-item-<%= 2*j + 1 %>" style="display: none">
+                    <div class="cate-part-col1">
+                        <div class="cate-tit">
+                            <a href="javascripts:void 0;">赛事 ></a>
+                            <a href="javascripts:void 0;">运动城 ></a>
+                            <a href="javascripts:void 0;">户外馆 ></a>
+                            <a href="javascripts:void 0;">健身房 ></a>
+                            <a href="javascripts:void 0;">骑行馆 ></a>
+                            <a href="javascripts:void 0;">钟表行 ></a>
+                        </div>
+                        <div class="cate-detail">
+                            <% for (var k = 0; k < 10; k++) { %>
+                            <dl class="cate-detail-item">
+                                <dt class="cate-detail-tit">
+                                    <a href="javascript:void 0;">运动鞋包 ></a>
+                                </dt>
+                                <dd class="cate-detail-con">
+                                    <% for(var i = 0; i < 10; i++) { %>
+                                    <a class="cate-detail-con-lk" href="javascript:void 0;">跑步鞋</a>
+                                    <% } %>
+                                </dd>
+                            </dl>
+                            <% } %>
+                        </div>
+                    </div>
+                    <div class="cate-part-col2">
+                        <div class="cate-brand">
+                            <% for(var i = 0; i < 8; i++) { %>
+                            <a href="javascript:void 0;" class="cate-brand-lk"><img width="83" height="35" src="/images/slider/FitTime.png"></a>
+                            <% } %>
+                        </div>
+                        <div class="cate-promotion">
+                            <a href="javascript:void 0;" class="cate-promotion-lk"><img src="/images/slider/sport_shoes.jpg"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- 轮播图 -->
         <div class="fs-center">
+            <!-- Slider -->
             <div id="slider_wrap" class="slider-main">
                 <div class="inner">
 
@@ -44,13 +95,53 @@
             </div>
             <div class="slider-extend"></div>
         </div>
-        <div class="fs-right"></div>
+        <!-- 轮播图右侧选项卡 -->
+        <div class="fs-right">
+
+        </div>
+    </div>
+</div>
+
+<!-- 秒杀 -->
+<div id="seckill" class="m-b">
+    <div class="sk-inner">
+        <div class="box-hd clearfix">
+            <div class="box-hd-col1">
+                <i class="box_hd_dec"></i>
+                <i class="box_hd_icon"></i>
+                <h3 class="box_tit">京东秒杀</h3>
+                <a class="box_sunmit" href="javascript:;">总有你想不到的低价 <i class="submit_arrow"></i></a>
+            </div>
+            <div class="box-hd-col2">
+                <div class="sk-cd">
+                    <span class="sk-cd-tip">当前场次</span>
+                    <div class="sk-cd-main">
+                        <div class="cd-item cd_hour"></div>
+                        <div class="cd-split">
+                            <i class="dot top"></i>
+                            <i class="dot bottom"></i>
+                        </div>
+                        <div class="cd-item cd_minute"></div>
+                        <div class="cd-split">
+                            <i class="dot top"></i>
+                            <i class="dot bottom"></i>
+                        </div>
+                        <div class="cd-item cd_second"></div>
+                    </div>
+                    <span class="sk-cd-tip">后结束抢购</span>
+                </div>
+            </div>
+        </div>
+        <div class="box-bd clearfix"></div>
     </div>
 </div>
 </body>
 </html>
+<script src="/javascripts/jquery/jquery-1.11.3.js"></script>
 <script src="/javascripts/utils.js"></script>
 <script src="/javascripts/animate.js"></script>
 <script src="/javascripts/top-login.js"></script>
 <script src="/javascripts/top-search.js"></script>
-<script src="/javascripts/slider.js"></script>
+<script src="/javascripts/sliderClass.js"></script>
+<script src="/javascripts/seckill.js"></script>
+
