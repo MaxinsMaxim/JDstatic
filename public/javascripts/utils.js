@@ -181,7 +181,7 @@ var kirin = (function () {
      * 获取n到m间的随机整数
      * @param n
      * @param m
-     * @returns {number}
+     * @returns {number},l
      */
     function getRandom(n, m) {
         if (isNaN(n) || isNaN(m)) {

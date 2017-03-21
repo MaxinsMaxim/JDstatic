@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var slider_api = require('./routes/slider_api');
+var seckill_api = require('./routes/seckill_api');
 
 var app = express();
 
@@ -25,8 +26,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
-//轮播图接口
-app.use('/api/slider', slider_api);
+
+app.use('/api/slider', slider_api); //轮播图接口
+app.use('/api/seckill', seckill_api); //秒杀物品接口
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

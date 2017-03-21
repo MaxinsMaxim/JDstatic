@@ -70,6 +70,13 @@ a:hover {
     top: -50px; }
   to {
     top: 0; } }
+.cssnimations .sk-item-img {
+  transition: transform .4s ease,-webkit-transform .4s ease;
+  transform: translateY(0); }
+.cssnimations .sk-item-lk:hover .sk-item-img {
+  transform: translateY(-5px);
+  -webkit-transform: translateY(-5px); }
+
 /*top-login*/
 #shotcut {
   border-bottom: 1px solid #ddd;
@@ -769,5 +776,117 @@ a:hover {
                 margin-bottom: 4px; }
               #seckill .sk-inner .box-hd .box-hd-col2 .sk-cd .sk-cd-main .cd-split .bottom {
                 top: 30px; }
+    #seckill .sk-inner .box-bd {
+      padding: 12px 0 13px;
+      height: 225px;
+      overflow: hidden;
+      background-color: #fff; }
+      #seckill .sk-inner .box-bd .sk-list-wrapper {
+        float: left;
+        width: 1000px;
+        overflow: hidden;
+        position: relative; }
+        #seckill .sk-inner .box-bd .sk-list-wrapper .sk-list {
+          color: #999;
+          width: 6000px; }
+          #seckill .sk-inner .box-bd .sk-list-wrapper .sk-list .sk-item {
+            float: left;
+            width: 170px;
+            height: 225px;
+            padding: 0 14px 0 15px;
+            border-right: 1px solid #e7e7e7; }
+            #seckill .sk-inner .box-bd .sk-list-wrapper .sk-list .sk-item .item-pic {
+              position: relative;
+              text-align: center; }
+              #seckill .sk-inner .box-bd .sk-list-wrapper .sk-list .sk-item .item-pic a {
+                display: block;
+                outline: 0; }
+                #seckill .sk-inner .box-bd .sk-list-wrapper .sk-list .sk-item .item-pic a .sk-item-img {
+                  width: 130px;
+                  height: 130px;
+                  margin: 17px 0; }
+                #seckill .sk-inner .box-bd .sk-list-wrapper .sk-list .sk-item .item-pic a p {
+                  color: #999;
+                  display: block;
+                  max-width: 100%;
+                  overflow: hidden;
+                  font-size: 12px;
+                  text-align: left;
+                  height: 32px;
+                  line-height: 16px;
+                  word-wrap: break-word;
+                  word-break: break-all; }
+              #seckill .sk-inner .box-bd .sk-list-wrapper .sk-list .sk-item .item-pic a:hover p {
+                color: #c81623; }
+              #seckill .sk-inner .box-bd .sk-list-wrapper .sk-list .sk-item .item-pic .item-shadow {
+                position: absolute;
+                left: 0;
+                top: 130px;
+                text-align: center;
+                background-image: url("/images/goods_items/sprite_index@1x.png");
+                background-position: 0 0;
+                -moz-background-size: 218px 188px;
+                background-size: 218px 188px;
+                background-repeat: no-repeat;
+                width: 170px;
+                height: 20px; }
+            #seckill .sk-inner .box-bd .sk-list-wrapper .sk-list .sk-item .item-price {
+              padding: 3px 0;
+              height: 25px; }
+              #seckill .sk-inner .box-bd .sk-list-wrapper .sk-list .sk-item .item-price .price-new {
+                font-size: 18px;
+                font-weight: 700;
+                margin-right: 8px;
+                color: #F10214; }
+                #seckill .sk-inner .box-bd .sk-list-wrapper .sk-list .sk-item .item-price .price-new i {
+                  font-size: 12px;
+                  font-weight: 300;
+                  margin-right: 3px;
+                  font-family: arial; }
+              #seckill .sk-inner .box-bd .sk-list-wrapper .sk-list .sk-item .item-price .price-old {
+                color: #999;
+                font-size: 12px; }
+                #seckill .sk-inner .box-bd .sk-list-wrapper .sk-list .sk-item .item-price .price-old i {
+                  margin-right: 3px;
+                  font-family: arial;
+                  font-weight: 400;
+                  font-size: 12px; }
+                #seckill .sk-inner .box-bd .sk-list-wrapper .sk-list .sk-item .item-price .price-old del {
+                  font-weight: 400; }
+        #seckill .sk-inner .box-bd .sk-list-wrapper .sk-controls {
+          display: none; }
+          #seckill .sk-inner .box-bd .sk-list-wrapper .sk-controls a {
+            position: absolute;
+            display: block;
+            z-index: 1;
+            top: 50%;
+            margin-top: -25px;
+            width: 20px;
+            height: 50px;
+            background: rgba(0, 0, 0, 0.1);
+            line-height: 50px;
+            text-align: center; }
+          #seckill .sk-inner .box-bd .sk-list-wrapper .sk-controls .sk-controls-left {
+            left: 7px; }
+          #seckill .sk-inner .box-bd .sk-list-wrapper .sk-controls .sk-controls-right {
+            right: 7px; }
+        #seckill .sk-inner .box-bd .sk-list-wrapper .split {
+          position: absolute;
+          right: 0;
+          top: 0;
+          width: 1px;
+          height: 100%;
+          background-color: #fff; }
+      #seckill .sk-inner .box-bd .sk-list-wrapper:hover .sk-controls {
+        display: block; }
+      #seckill .sk-inner .box-bd .sk-special {
+        margin: 0 10px 0 0;
+        float: right; }
+        #seckill .sk-inner .box-bd .sk-special img {
+          display: block;
+          width: 180px;
+          height: 225px;
+          border: none;
+          vertical-align: top; }
 
 /*# sourceMappingURL=style.css.map */
