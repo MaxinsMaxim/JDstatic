@@ -76,6 +76,12 @@ a:hover {
 .cssnimations .sk-item-lk:hover .sk-item-img {
   transform: translateY(-5px);
   -webkit-transform: translateY(-5px); }
+.cssnimations .find-item-img {
+  -webkit-transition: -webkit-transform .4s ease-out;
+  transition: transform .4s ease-out;
+  transform: translateX(0); }
+.cssnimations .find-item-lk:hover .find-item-img {
+  transform: translateX(-5px); }
 
 /*top-login*/
 #shotcut {
@@ -474,6 +480,7 @@ a:hover {
         font-weight: 700;
         color: #555; }
 
+/*nav & banner*/
 .fs {
   position: relative;
   margin-bottom: 10px; }
@@ -670,6 +677,7 @@ a:hover {
       width: 190px;
       background: #fff url("../images/slider/right_card.png") no-repeat; }
 
+/*sec-kill*/
 #seckill {
   height: 305px; }
   #seckill .sk-inner {
@@ -888,5 +896,176 @@ a:hover {
           height: 225px;
           border: none;
           vertical-align: top; }
+
+#findGoods {
+  height: 444px; }
+  #findGoods .find-inner {
+    margin: 0 auto;
+    width: 1190px; }
+    #findGoods .find-inner .find-col1,
+    #findGoods .find-inner .find-col2,
+    #findGoods .find-inner .find-col3 {
+      width: 390px;
+      height: 444px;
+      float: left;
+      overflow: hidden;
+      margin-right: 10px; }
+    #findGoods .find-inner .find-col3 {
+      margin-right: 0; }
+    #findGoods .find-inner .box-hd {
+      position: relative;
+      padding: 0 20px 0 30px;
+      height: 55px;
+      line-height: 55px;
+      color: #fff; }
+      #findGoods .find-inner .box-hd .arrow {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+        border-top: 19px solid #f6f6f6;
+        border-right: 19px solid transparent; }
+      #findGoods .find-inner .box-hd .dec {
+        position: absolute;
+        left: -4px;
+        top: -4px;
+        width: 28px;
+        height: 28px; }
+      #findGoods .find-inner .box-hd .tit {
+        font-family: 'Microsoft YaHei UI Light';
+        font-size: 26px;
+        font-weight: 400;
+        line-height: 40px;
+        height: 40px;
+        padding-top: 9px;
+        float: left; }
+      #findGoods .find-inner .box-hd .submit {
+        position: relative;
+        float: right;
+        margin-top: 19px;
+        padding-right: 20px;
+        height: 24px;
+        line-height: 24px;
+        font-size: 14px;
+        color: #fff; }
+        #findGoods .find-inner .box-hd .submit .arrow-right {
+          background-image: url("/images/goods_items/sprite_index@1x.png");
+          background-position: -154px -40px;
+          background-size: 218px 188px;
+          background-repeat: no-repeat;
+          width: 15px;
+          height: 16px;
+          position: absolute;
+          right: 0;
+          top: 4px; }
+    #findGoods .find-inner .box-bd {
+      background-color: #fff; }
+    #findGoods .find-inner .find-col1 .box-hd {
+      background: #4998a1;
+      background-image: -webkit-linear-gradient(left, #4998a1, #2e828b);
+      background-image: -moz-linear-gradient(left, #4998a1, #2e828b);
+      background-image: linear-gradient(90deg, #4998a1, #2e828b); }
+      #findGoods .find-inner .find-col1 .box-hd .dec {
+        background-image: url("/images/goods_items/sprite_index@1x.png");
+        background-position: -190px -96px;
+        background-size: 218px 188px;
+        background-repeat: no-repeat; }
+    #findGoods .find-inner .find-col1 .box-bd {
+      padding: 10px;
+      height: 369px; }
+      #findGoods .find-inner .find-col1 .box-bd .find-list {
+        width: 370px;
+        height: 363px;
+        overflow: hidden; }
+        #findGoods .find-inner .find-col1 .box-bd .find-list .find-item {
+          float: left;
+          border-right: 1px solid #e7e7e7;
+          border-bottom: 1px solid #e7e7e7; }
+          #findGoods .find-inner .find-col1 .box-bd .find-list .find-item .find-item-lk {
+            display: block;
+            width: 185px;
+            height: 120px;
+            position: relative; }
+          #findGoods .find-inner .find-col1 .box-bd .find-list .find-item p {
+            font-size: 14px;
+            color: #4998a1;
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            width: 80px;
+            line-height: 20px;
+            z-index: 1;
+            word-wrap: break-word; }
+          #findGoods .find-inner .find-col1 .box-bd .find-list .find-item .find-item-img {
+            position: absolute;
+            bottom: 5px;
+            right: 10px;
+            width: 80px;
+            height: 80px;
+            opacity: 0; }
+        #findGoods .find-inner .find-col1 .box-bd .find-list .find-item:nth-child(even) {
+          border-right: 0;
+          margin-right: -1px; }
+    #findGoods .find-inner .find-col2 .box-hd {
+      background: #7d2e5c;
+      background-image: -webkit-linear-gradient(left, #7d2e5c, #6f184a);
+      background-image: -moz-linear-gradient(left, #7d2e5c, #6f184a);
+      background-image: linear-gradient(90deg, #7d2e5c, #6f184a); }
+      #findGoods .find-inner .find-col2 .box-hd .dec {
+        background-image: url("/images/goods_items/sprite_index@1x.png");
+        background-position: 0 -160px;
+        background-size: 218px 188px;
+        background-repeat: no-repeat; }
+    #findGoods .find-inner .find-col2 .box-bd {
+      padding: 10px;
+      height: 369px; }
+      #findGoods .find-inner .find-col2 .box-bd .brand-top {
+        margin-bottom: 12px;
+        height: 227px;
+        overflow: hidden; }
+        #findGoods .find-inner .find-col2 .box-bd .brand-top .brand-top-wrapper {
+          float: left;
+          width: 185px; }
+          #findGoods .find-inner .find-col2 .box-bd .brand-top .brand-top-wrapper .brand-top-lk {
+            display: block;
+            padding: 15px 22px 10px 23px;
+            border-right: 1px solid #e7e7e7; }
+            #findGoods .find-inner .find-col2 .box-bd .brand-top .brand-top-wrapper .brand-top-lk .name {
+              font-size: 16px;
+              color: #8b3a6d;
+              margin-bottom: 5px;
+              line-height: 18px;
+              height: 18px;
+              overflow: hidden; }
+            #findGoods .find-inner .find-col2 .box-bd .brand-top .brand-top-wrapper .brand-top-lk .desc {
+              color: #666;
+              height: 36px;
+              margin-bottom: 8px;
+              overflow: hidden; }
+            #findGoods .find-inner .find-col2 .box-bd .brand-top .brand-top-wrapper .brand-top-lk .split {
+              width: 19px;
+              height: 3px;
+              background: #8b3a6d;
+              margin-bottom: 12px; }
+            #findGoods .find-inner .find-col2 .box-bd .brand-top .brand-top-wrapper .brand-top-lk .brand-top-img {
+              display: block;
+              width: 140px;
+              height: 120px;
+              transition: transform .4s ease-out; }
+          #findGoods .find-inner .find-col2 .box-bd .brand-top .brand-top-wrapper .brand-top-lk:nth-child(even) {
+            border-right: none; }
+    #findGoods .find-inner .find-col3 .box-hd {
+      background: #e77005;
+      background-image: -webkit-linear-gradient(left, #e77005, #e45d04);
+      background-image: -moz-linear-gradient(left, #e77005, #e45d04);
+      background-image: linear-gradient(90deg, #e77005, #e45d04); }
+      #findGoods .find-inner .find-col3 .box-hd .dec {
+        background-image: url("/images/goods_items/sprite_index@1x.png");
+        background-position: -190px 0;
+        background-size: 218px 188px;
+        background-repeat: no-repeat; }
+    #findGoods .find-inner .find-col3 .box-bd {
+      height: 389px; }
 
 /*# sourceMappingURL=style.css.map */

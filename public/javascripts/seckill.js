@@ -5,7 +5,7 @@
     var minute = seckill.getElementsByClassName('cd_minute')[0];
     var second = seckill.getElementsByClassName('cd_second')[0];
 
-    var skTimer = new Date().getTime() + Number(6660000);
+    var skTimer = new Date().getTime() + Number(Math.round(Math.random()*(6700000 - 1000000) + 1000000));
 
     function timeout(target) {
         var tarTime = new Date(target);
