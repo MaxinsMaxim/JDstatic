@@ -71,7 +71,7 @@ a:hover {
   to {
     top: 0; } }
 .cssnimations .sk-item-img {
-  transition: transform .4s ease,-webkit-transform .4s ease;
+  transition: transform .4s ease, -webkit-transform .4s ease;
   transform: translateY(0); }
 .cssnimations .sk-item-lk:hover .sk-item-img {
   transform: translateY(-5px);
@@ -81,6 +81,12 @@ a:hover {
   transition: transform .4s ease-out;
   transform: translateX(0); }
 .cssnimations .find-item-lk:hover .find-item-img {
+  transform: translateX(-5px); }
+.cssnimations .brand-top-img {
+  -webkit-transition: -webkit-transform .4s ease-out;
+  transition: transform .4s ease-out;
+  transform: translateX(0); }
+.cssnimations .brand-top-lk:hover .brand-top-img {
   transform: translateX(-5px); }
 
 /*top-login*/
@@ -1020,6 +1026,8 @@ a:hover {
     #findGoods .find-inner .find-col2 .box-bd {
       padding: 10px;
       height: 369px; }
+      #findGoods .find-inner .find-col2 .box-bd img {
+        opacity: 0; }
       #findGoods .find-inner .find-col2 .box-bd .brand-top {
         margin-bottom: 12px;
         height: 227px;
@@ -1053,8 +1061,12 @@ a:hover {
               width: 140px;
               height: 120px;
               transition: transform .4s ease-out; }
-          #findGoods .find-inner .find-col2 .box-bd .brand-top .brand-top-wrapper .brand-top-lk:nth-child(even) {
-            border-right: none; }
+        #findGoods .find-inner .find-col2 .box-bd .brand-top .brand-top-wrapper:nth-child(even) .brand-top-lk {
+          border-right: none; }
+      #findGoods .find-inner .find-col2 .box-bd .brand-bottom img {
+        display: block;
+        width: 370px;
+        height: 130px; }
     #findGoods .find-inner .find-col3 .box-hd {
       background: #e77005;
       background-image: -webkit-linear-gradient(left, #e77005, #e45d04);
@@ -1067,5 +1079,93 @@ a:hover {
         background-repeat: no-repeat; }
     #findGoods .find-inner .find-col3 .box-bd {
       height: 389px; }
+      #findGoods .find-inner .find-col3 .box-bd .top-tab-head {
+        padding: 6px 0 7px;
+        font-size: 0;
+        border-bottom: 1px solid #e7e7e7;
+        width: 370px;
+        height: 18px;
+        margin: 0 auto;
+        white-space: nowrap;
+        overflow: hidden;
+        position: relative; }
+        #findGoods .find-inner .find-col3 .box-bd .top-tab-head .top-tab-head-item {
+          display: inline-block;
+          line-height: 18px;
+          font-size: 14px;
+          width: 77px;
+          border-right: 1px solid #d2d1d1;
+          text-align: center;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap; }
+        #findGoods .find-inner .find-col3 .box-bd .top-tab-head .top-tab-head-item:first-child {
+          margin-left: -10px; }
+        #findGoods .find-inner .find-col3 .box-bd .top-tab-head .top-tab-active {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 58px;
+          height: 2px;
+          background: #f10214;
+          transform: translateX(0);
+          -webkit-transform: translateX(0);
+          transition: transform .3s ease; }
+      #findGoods .find-inner .find-col3 .box-bd .top-tab-content {
+        padding: 10px; }
+        #findGoods .find-inner .find-col3 .box-bd .top-tab-content .top-tab-content-item {
+          height: 335px;
+          overflow: hidden;
+          display: none; }
+          #findGoods .find-inner .find-col3 .box-bd .top-tab-content .top-tab-content-item img {
+            opacity: 0; }
+          #findGoods .find-inner .find-col3 .box-bd .top-tab-content .top-tab-content-item .top-list {
+            height: 100%; }
+            #findGoods .find-inner .find-col3 .box-bd .top-tab-content .top-tab-content-item .top-list .top-item {
+              position: relative;
+              float: left;
+              width: 123px;
+              text-align: center; }
+              #findGoods .find-inner .find-col3 .box-bd .top-tab-content .top-tab-content-item .top-list .top-item .top-item-lk {
+                display: block;
+                padding: 12px 0;
+                border-right: 1px solid #e7e7e7;
+                border-bottom: 1px solid #e7e7e7;
+                cursor: pointer; }
+                #findGoods .find-inner .find-col3 .box-bd .top-tab-content .top-tab-content-item .top-list .top-item .top-item-lk .top-rank {
+                  position: absolute;
+                  top: 12px;
+                  left: 11px;
+                  color: #fff;
+                  line-height: 35px;
+                  text-align: center;
+                  font-size: 22px;
+                  background-image: url("/images/goods_items/sprite_index@1x.png");
+                  background-position: -100px -100px;
+                  -moz-background-size: 218px 188px;
+                  background-size: 218px 188px;
+                  background-repeat: no-repeat;
+                  width: 30px;
+                  height: 40px;
+                  z-index: 20; }
+                #findGoods .find-inner .find-col3 .box-bd .top-tab-content .top-tab-content-item .top-list .top-item .top-item-lk .top-rank-1 {
+                  background-position: -104px -40px; }
+                #findGoods .find-inner .find-col3 .box-bd .top-tab-content .top-tab-content-item .top-list .top-item .top-item-lk .top-rank-2 {
+                  background-position: -50px -100px; }
+                #findGoods .find-inner .find-col3 .box-bd .top-tab-content .top-tab-content-item .top-list .top-item .top-item-lk .top-rank-3 {
+                  background-position: 0 -100px; }
+                #findGoods .find-inner .find-col3 .box-bd .top-tab-content .top-tab-content-item .top-list .top-item .top-item-lk .top-pic {
+                  margin-bottom: 10px; }
+                  #findGoods .find-inner .find-col3 .box-bd .top-tab-content .top-tab-content-item .top-list .top-item .top-item-lk .top-pic .top-item-img {
+                    width: 100px;
+                    height: 100px; }
+                #findGoods .find-inner .find-col3 .box-bd .top-tab-content .top-tab-content-item .top-list .top-item .top-item-lk .top-name {
+                  height: 32px;
+                  text-align: left;
+                  padding: 0 11px;
+                  line-height: 16px;
+                  overflow: hidden;
+                  word-wrap: break-word;
+                  word-break: break-all; }
 
 /*# sourceMappingURL=style.css.map */

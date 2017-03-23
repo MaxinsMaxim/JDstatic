@@ -1,7 +1,7 @@
+// 发现好货
 ;(function () {
-    var goodsList = document.getElementById('findGoods');
+    var goodsList = $('#findGoods')[0];
     var container = goodsList.getElementsByClassName('find-list')[0];
-    var imgs = container.getElementsByTagName('img');
     var data = null;
     $.ajax({
         url: '/api/findItems',
@@ -31,36 +31,105 @@
 
     bindData();
 
-    function lazyLoad() {
-        for (var i = 0; i < imgs.length; i++) {
-            var curImg = imgs[i];
-            if (!curImg.isLoaded) {
-                var _a = kirin.offset(curImg).top + curImg.offsetHeight;
-                var _b = kirin.win('clientHeight') + kirin.win('scrollTop');
-                if (_a < _b) {
-                    checkImg(curImg);
-                    animate({
-                        ele: curImg,
-                        target: {
-                            opacity: 1
-                        },
-                        duration: 800
-                    })
+    maxin.lazyLoad({container: container});
+    window.addEventListener('scroll', maxin.lazyLoad.bind(null, {container: container}));
+})();
+
+//品牌头条
+;(function () {
+    var $brandList = $('#findGoods').find('.find-col2');
+    var brandTop = $brandList.find('.brand-top')[0];
+    var brandBottom = $brandList.find('.brand-bottom')[0];
+    $.ajax({
+        url: '/api/findItems/brandList',
+        type: 'get',
+        cache: false,
+        async: false,
+        dataType: 'json',
+        success: function (res) {
+            if (res.status == 200) {
+                var str = '';
+                for (var i = 0; i < res.brandInfo.length; i++) {
+                    str += '<div class="brand-top-wrapper">';
+                    str += '<a class="brand-top-lk" href="' + res.brandInfo[i].link + '">';
+                    str += '<p class="name">' + res.brandInfo[i].name + '</p>';
+                    str += '<p class="desc">' + res.brandInfo[i].desc + '</p>';
+                    str += '<div class="split"></div>';
+                    str += '<div class="pic"><img class="brand-top-img" real="' + res.brandInfo[i].src + '"></div>';
+                    str += '</a></div>';
                 }
+                brandTop.innerHTML = str;
+                var str2 = '';
+                str2 += '<a href="' + res.brandBottom.link + '"><img real="' + res.brandBottom.src + '"></a>';
+                brandBottom.innerHTML = str2;
             }
         }
+    });
+
+    maxin.lazyLoad({container: $brandList[0]});
+    window.addEventListener('scroll', maxin.lazyLoad.bind(null, {container: $brandList[0]}));
+})();
+
+//排行榜
+;(function () {
+    var $topList = $('#findGoods').find('.find-col3');
+    var topHead = $topList.find('.top-tab-head')[0];
+    var topContent = $topList.find('.top-tab-content')[0];
+
+    var data = null;
+    $.ajax({
+        url: '/api/findItems/topList',
+        type: 'get',
+        cache: false,
+        async: false,
+        dataType: 'json',
+        success: function (res) {
+            if (res.status == 200) {
+                data = res.topList;
+            }
+        }
+    });
+
+    var strHead = '';
+    var strContent = '';
+    if (data && data.length) {
+        for (var i = 0; i < data.length; i++) {
+            strHead += '<a class="top-tab-head-item" href="' + data[i].headLink + '">' + data[i].tabName + '</a>';
+            strContent += '<div class="top-tab-content-item">';
+            strContent += '<ul class="top-list clearfix">';
+            for (var j = 0; j < data[i].imgItem.length; j++) {
+                strContent += '<li class="top-item">';
+                strContent += '<a class="top-item-lk" href="' + data[i].imgItem[j].link + '" target="_blank">';
+                strContent += '<div class="top-rank top-rank-' + ( j + 1 ) + '">' + ( j + 1 ) + '</div>';
+                strContent += '<div class="top-pic"><img class="top-item-img" real="' + data[i].imgItem[j].src + '"></div>';
+                strContent += '<p class="top-name">' + data[i].imgItem[j].title + '</p>';
+                strContent += '</a>';
+                strContent += '</li>';
+            }
+
+            strContent += '</ul>';
+            strContent += '</div>';
+        }
+
+        strHead += '<div class="top-tab-active"></div>';
+        topHead.innerHTML = strHead;
+        topContent.innerHTML = strContent;
     }
 
-    lazyLoad();
+    var $imgCon = $(topContent).find('.top-tab-content-item');
+    var $headItem = $(topHead).find('.top-tab-head-item');
 
-    function checkImg(img) {
-        var tempImg = document.createElement('img');
-        tempImg.src = img.getAttribute('real');
-        tempImg.onload = function () {
-            img.src = this.src;
-        };
-        img.isLoaded = true;
-    }
-
-    window.addEventListener('scroll', lazyLoad)
+    $imgCon.first().show();
+    maxin.lazyLoad({container: $imgCon.first()[0]});
+    $headItem.hover(function () {
+        var index = $(this).index();
+        var $curImgCon = $imgCon.eq(index);
+        $(topHead).find('.top-tab-active').css({transform: 'translateX(' + index * 78 + 'px)'});
+        $curImgCon.show().siblings().hide();
+        if (!($curImgCon[0].isLoaded)) {
+            var container = $imgCon.filter(':visible')[0];
+            maxin.lazyLoad({container: container});
+            $curImgCon[0].isLoaded = true;
+        }
+    })
 })();

@@ -90,7 +90,7 @@ a:hover {
         }
     }
     .sk-item-img {
-        transition: transform .4s ease,-webkit-transform .4s ease;
+        transition: transform .4s ease, -webkit-transform .4s ease;
         transform: translateY(0);
     }
     .sk-item-lk:hover .sk-item-img {
@@ -103,6 +103,14 @@ a:hover {
         transform: translateX(0);
     }
     .find-item-lk:hover .find-item-img {
+        transform: translateX(-5px);
+    }
+    .brand-top-img {
+        -webkit-transition: -webkit-transform .4s ease-out;
+        transition: transform .4s ease-out;
+        transform: translateX(0);
+    }
+    .brand-top-lk:hover .brand-top-img {
         transform: translateX(-5px);
     }
 }
@@ -1067,7 +1075,7 @@ a:hover {
                         margin-top: -25px;
                         width: 20px;
                         height: 50px;
-                        background: rgba(0,0,0,.1);
+                        background: rgba(0, 0, 0, .1);
                         line-height: 50px;
                         text-align: center;
                     }
@@ -1181,9 +1189,9 @@ a:hover {
         .find-col1 {
             .box-hd {
                 background: #4998a1;
-                background-image: -webkit-linear-gradient(left,#4998a1,#2e828b);
-                background-image: -moz-linear-gradient(left,#4998a1,#2e828b);
-                background-image: linear-gradient(90deg,#4998a1,#2e828b);
+                background-image: -webkit-linear-gradient(left, #4998a1, #2e828b);
+                background-image: -moz-linear-gradient(left, #4998a1, #2e828b);
+                background-image: linear-gradient(90deg, #4998a1, #2e828b);
                 .dec {
                     background-image: url('/images/goods_items/sprite_index@1x.png');
                     background-position: -190px -96px;
@@ -1238,9 +1246,9 @@ a:hover {
         .find-col2 {
             .box-hd {
                 background: #7d2e5c;
-                background-image: -webkit-linear-gradient(left,#7d2e5c,#6f184a);
-                background-image: -moz-linear-gradient(left,#7d2e5c,#6f184a);
-                background-image: linear-gradient(90deg,#7d2e5c,#6f184a);
+                background-image: -webkit-linear-gradient(left, #7d2e5c, #6f184a);
+                background-image: -moz-linear-gradient(left, #7d2e5c, #6f184a);
+                background-image: linear-gradient(90deg, #7d2e5c, #6f184a);
                 .dec {
                     background-image: url('/images/goods_items/sprite_index@1x.png');
                     background-position: 0 -160px;
@@ -1249,6 +1257,9 @@ a:hover {
                 }
             }
             .box-bd {
+                img {
+                    opacity: 0;
+                }
                 padding: 10px;
                 height: 369px;
                 .brand-top {
@@ -1289,9 +1300,16 @@ a:hover {
                                 transition: transform .4s ease-out;
                             }
                         }
-                        .brand-top-lk:nth-child(even) {
-                            border-right: none;
-                        }
+                    }
+                    .brand-top-wrapper:nth-child(even) .brand-top-lk {
+                        border-right: none;
+                    }
+                }
+                .brand-bottom {
+                    img {
+                        display: block;
+                        width: 370px;
+                        height: 130px;
                     }
                 }
             }
@@ -1299,9 +1317,9 @@ a:hover {
         .find-col3 {
             .box-hd {
                 background: #e77005;
-                background-image: -webkit-linear-gradient(left,#e77005,#e45d04);
-                background-image: -moz-linear-gradient(left,#e77005,#e45d04);
-                background-image: linear-gradient(90deg,#e77005,#e45d04);
+                background-image: -webkit-linear-gradient(left, #e77005, #e45d04);
+                background-image: -moz-linear-gradient(left, #e77005, #e45d04);
+                background-image: linear-gradient(90deg, #e77005, #e45d04);
                 .dec {
                     background-image: url('/images/goods_items/sprite_index@1x.png');
                     background-position: -190px 0;
@@ -1311,7 +1329,113 @@ a:hover {
             }
             .box-bd {
                 height: 389px;
+                .top-tab-head {
+                    padding: 6px 0 7px;
+                    font-size: 0;
+                    border-bottom: 1px solid #e7e7e7;
+                    width: 370px;
+                    height: 18px;
+                    margin: 0 auto;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    position: relative;
+                    .top-tab-head-item {
+                        display: inline-block;
+                        line-height: 18px;
+                        font-size: 14px;
+                        width: 77px;
+                        border-right: 1px solid #d2d1d1;
+                        text-align: center;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                    }
+                    .top-tab-head-item:first-child {
+                        margin-left: -10px;
+                    }
+                    .top-tab-active {
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        width: 58px;
+                        height: 2px;
+                        background: #f10214;
+                        transform: translateX(0);
+                        -webkit-transform: translateX(0);
+                        transition: transform .3s ease;
+                    }
+                }
+                .top-tab-content {
+                    padding: 10px;
+                    .top-tab-content-item {
+                        height: 335px;
+                        overflow: hidden;
+                        display: none;
+                        img {
+                            opacity: 0;
+                        }
+                        .top-list {
+                            height: 100%;
+                            .top-item {
+                                position: relative;
+                                float: left;
+                                width: 123px;
+                                text-align: center;
+                                .top-item-lk {
+                                    display: block;
+                                    padding: 12px 0;
+                                    border-right: 1px solid #e7e7e7;
+                                    border-bottom: 1px solid #e7e7e7;
+                                    cursor: pointer;
+                                    .top-rank {
+                                        position: absolute;
+                                        top: 12px;
+                                        left: 11px;
+                                        color: #fff;
+                                        line-height: 35px;
+                                        text-align: center;
+                                        font-size: 22px;
+                                        background-image: url('/images/goods_items/sprite_index@1x.png');
+                                        background-position: -100px -100px;
+                                        -moz-background-size: 218px 188px;
+                                        background-size: 218px 188px;
+                                        background-repeat: no-repeat;
+                                        width: 30px;
+                                        height: 40px;
+                                        z-index: 20;
+                                    }
+                                    .top-rank-1 {
+                                        background-position: -104px -40px;
+                                    }
+                                    .top-rank-2 {
+                                        background-position: -50px -100px;
+                                    }
+                                    .top-rank-3 {
+                                        background-position: 0 -100px;
+                                    }
+                                    .top-pic {
+                                        margin-bottom: 10px;
+                                        .top-item-img {
+                                            width: 100px;
+                                            height: 100px;
+                                        }
+                                    }
+                                    .top-name {
+                                        height: 32px;
+                                        text-align: left;
+                                        padding: 0 11px;
+                                        line-height: 16px;
+                                        overflow: hidden;
+                                        word-wrap: break-word;
+                                        word-break: break-all;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }
+
 }
