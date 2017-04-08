@@ -1,0 +1,88 @@
+<div class="fs">
+    <div class="fs-inner w">
+        <!-- 分类导航  -->
+        <div class="fs-left">
+            <ul class="cate-menu">
+                <% for (var i = 0; i < 7; i++) { %>
+                <li class="cate-menu-item">
+                    <a href="javascript:void 0;">家用电器</a>
+                    <span class="cate-menu-line">/</span>
+                    <a href="javascript:void 0;">电脑办公</a>
+                </li>
+                <li class="cate-menu-item">
+                    <a href="javascript:void 0;">运动</a>
+                    <span class="cate-menu-line">/</span>
+                    <a href="javascript:void 0;">户外</a>
+                    <span class="cate-menu-line">/</span>
+                    <a href="javascript:void 0;">钟表</a>
+                </li>
+                <% } %>
+                <li class="cate-menu-item" data-index="15">
+                    <a href="javascript:void 0;">家用电器</a>
+                    <span class="cate-menu-line">/</span>
+                    <a href="javascript:void 0;">电脑办公</a>
+                </li>
+            </ul>
+            <div class="cate-pop" style="display: none">
+                <% for (var j = 0; j < 7; j++) { %>
+                <%- include side-nav-con.ejs %>
+                <% } %>
+                <div class="cate-part clearfix" id="cate-item-<%= 2*j + 1 %>" style="display: none">
+                    <div class="cate-part-col1">
+                        <div class="cate-tit">
+                            <a href="javascripts:void 0;">赛事 ></a>
+                            <a href="javascripts:void 0;">运动城 ></a>
+                            <a href="javascripts:void 0;">户外馆 ></a>
+                            <a href="javascripts:void 0;">健身房 ></a>
+                            <a href="javascripts:void 0;">骑行馆 ></a>
+                            <a href="javascripts:void 0;">钟表行 ></a>
+                        </div>
+                        <div class="cate-detail">
+                            <% for (var k = 0; k < 10; k++) { %>
+                            <dl class="cate-detail-item">
+                                <dt class="cate-detail-tit">
+                                    <a href="javascript:void 0;">运动鞋包 ></a>
+                                </dt>
+                                <dd class="cate-detail-con">
+                                    <% for(var i = 0; i < 10; i++) { %>
+                                    <a class="cate-detail-con-lk" href="javascript:void 0;">跑步鞋</a>
+                                    <% } %>
+                                </dd>
+                            </dl>
+                            <% } %>
+                        </div>
+                    </div>
+                    <div class="cate-part-col2">
+                        <div class="cate-brand">
+                            <% for(var i = 0; i < 8; i++) { %>
+                            <a href="javascript:void 0;" class="cate-brand-lk"><img width="83" height="35" src="/images/slider/FitTime.png"></a>
+                            <% } %>
+                        </div>
+                        <div class="cate-promotion">
+                            <a href="javascript:void 0;" class="cate-promotion-lk"><img src="/images/slider/sport_shoes.jpg"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 轮播图 -->
+        <div class="fs-center">
+            <!-- Slider -->
+            <div id="slider_wrap" class="slider-main">
+                <div class="inner">
+
+                </div>
+                <ul class="focusList">
+
+                </ul>
+                <a class="slide-left" href="javascript:void 0;"><i class="fa fa-arrow-left"></i></a>
+                <a class="slide-right" href="javascript:void 0;"><i class="fa fa-arrow-right"></i></a>
+            </div>
+            <div class="slider-extend"></div>
+        </div>
+        <!-- 轮播图右侧的选项卡 -->
+        <div class="fs-right">
+
+        </div>
+    </div>
+</div>

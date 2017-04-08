@@ -120,7 +120,7 @@
     var $headItem = $(topHead).find('.top-tab-head-item');
 
     $imgCon.first().show();
-    maxin.lazyLoad({container: $imgCon.first()[0]});
+    window.addEventListener('scroll', maxin.lazyLoad.bind(null,{container: $imgCon.first()[0]}))
     $headItem.hover(function () {
         var index = $(this).index();
         var $curImgCon = $imgCon.eq(index);

@@ -1,0 +1,66 @@
+<script id="modRender" type="text/html">
+    {{# for (var j = 0, lens = d.col.length; j < lens; j++){ }}
+    <div class="item-col item-col-{{ j+1 }} {{ d.col[j].saleType }}">
+        <div class="hd-qrcode">
+            <h3 class="tit">{{ d.col[j].headInfo.title }}</h3>
+            <div class="qrcode">
+                <div class="qrcode-ico"></div>
+                <div class="qrcode-pop">
+                    <div class="qrcode-arrow"></div>
+                    <div class="qrcode-item">
+                        <div class="qrcode-img"><img src="{{ d.col[j].headInfo.qrcodeSrc }}" ></div>
+                        <div class="qrcode-txt">扫码进入手机版</div>
+                    </div>
+                </div>
+            </div>
+            <div class="tags">
+                {{# for(var i = 0, len = d.col[j].headInfo.tagsInfo.length; i < len; i++){ }}
+                <a class="tags-item" href="{{ d.col[j].headInfo.tagsInfo[i].link }}" target="_blank">{{= d.col[j].headInfo.tagsInfo[i].tagTxt }}</a>
+                {{# } }}
+            </div>
+        </div>
+        <div class="bd-wrapper">
+            <div class="bd-top">
+                <div class="bd-inner">
+                    <div class="cover">
+                        {{# for (var i = 0, len = d.col[j].bdInfo.cover.length; i < len; i++){ }}
+                        <a class="cover-lk" href="{{ d.col[j].bdInfo.cover[i].link }}"><img real="{{ d.col[j].bdInfo.cover[i].src }}" class="cover-img"></a>
+                        {{# } }}
+                    </div>
+                    <div class="zone-4">
+                        <span class="zone-split-h"></span>
+                        <span class="zone-split-v"></span>
+                        {{# for(var i = 0, len = d.col[j].bdInfo.zone.length; i < len; i++){ }}
+                        <a href="{{ d.col[j].bdInfo.zone[i].link }}" target="_blank" class="zone-item">
+                            <p class="tit">{{= d.col[j].bdInfo.zone[i].tit }}</p>
+                            <p class="promp">{{= d.col[j].bdInfo.zone[i].promp }}</p>
+                            <img class="img" real="{{ d.col[j].bdInfo.zone[i].src }}">
+                        </a>
+                        {{# } }}
+                    </div>
+                    <div class="more">
+                        {{# for(var i = 0, len = d.col[j].bdInfo.more.length; i < len; i++){ }}
+                        <a href="{{= d.col[j].bdInfo.more[i].link }}" target="_blank" class="more-item"><img real="{{= d.col[j].bdInfo.more[i].src }}" class="more-img"></a>
+                        {{# } }}
+                    </div>
+                </div>
+            </div>
+            <div class="bd-bottom">
+                <div class="logo">
+                    <div class="logo-list-wrapper">
+                        <ul class="logo-list clearfix">
+                            {{# for(var i = 0, len = d.col[j].bdInfo.logo.length; i < len; i++){ }}
+                            <li class="logo-item"><a href="{{= d.col[j].bdInfo.logo[i].link }}"><img class="logo-img" real="{{= d.col[j].bdInfo.logo[i].src }}"></a></li>
+                            {{# } }}
+                        </ul>
+                    </div>
+                    <div class="logo-btn-wrapper">
+                        <a class="logo-left" href="javascript:;"><i class="fa fa-arrow-left"></i></a>
+                        <a class="logo-right" href="javascript:;"><i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{# }}}
+</script>

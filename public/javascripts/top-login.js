@@ -24,4 +24,4 @@
             this.classList.remove('hover')
         }
     }
-});
+})();

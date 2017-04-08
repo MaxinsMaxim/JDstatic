@@ -23,7 +23,7 @@ var maxin = (function () {
         for (var i = 0; i < imgs.length; i++) {
             var curImg = imgs[i];
             if (!curImg.isLoaded) {
-                var _a = kirin.offset(curImg).top + curImg.offsetHeight;
+                var _a = kirin.offset(curImg.parentNode).top + curImg.parentNode.offsetHeight;
                 var _b = kirin.win('clientHeight') + kirin.win('scrollTop');
                 if (_a < _b) {
                     var tempImg = document.createElement('img');

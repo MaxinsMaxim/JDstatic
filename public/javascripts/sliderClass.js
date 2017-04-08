@@ -150,3 +150,7 @@ Slider.prototype.init = function () {
 //首页banner
 var wrap = document.getElementById('slider_wrap');
 var banner = new Slider(wrap, '/api/slider', 4000);
+
+//
+var box = document.getElementById('j-live');
+new Slider(box, '/api/slider/live', 4000)

@@ -48,7 +48,7 @@ var data = null;
                     target: {
                         opacity: 1
                     },
-                    duration: 200
+                    duration: 800
                 });
             }
         }

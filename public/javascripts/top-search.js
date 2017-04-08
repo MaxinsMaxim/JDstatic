@@ -2,11 +2,25 @@ var searchInput = document.getElementById('key');
 var shelper = document.getElementById('shelper');
 
 //搜索条焦点事件
-searchInput.onfocus = function () {
-    shelper.style.display = 'block';
+searchInput.onfocus = searchInput.onkeyup = function (e) {
+    var val = e.target.value.replace(/(^ +| +$)/g, '');
+    shelper.style.display = val.length ? 'block' : 'none';
 }
-searchInput.onblur = function () {
-    shelper.style.display = 'none';
+document.onclick = function (e) {
+    e = e || window.event;
+    e.target = e.target || e.srcElement;
+    if (e.target.className == 'search-item' && e.target.parentNode.parentNode.id == 'shelper') {
+        shelper.style.display = 'none';
+        searchInput.value = e.target.innerText;
+    } else if (e.target.className == 'search-count' && e.target.parentNode.parentNode.id == 'shelper') {
+        shelper.style.display = 'none';
+        searchInput.value = e.target.previousElementSibling.innerText;
+    } else {
+        shelper.style.display = 'none';
+    }
+}
+searchInput.onclick = function (e) {
+    e.stopPropagation();
 }
 
 //顶部搜索条滚动一定高度淡入

@@ -32,10 +32,50 @@ router.get('/', function (req, res) {
                     {
                         src: '/images/slider/img7.jpg'
                     }
+                ],
+                liveImg: [
+                    {
+                        src: '/images/slider/live_1.png'
+                    },
+                    {
+                        src: '/images/slider/live_2.png'
+                    },
+                    {
+                        src: '/images/slider/live_3.png'
+                    },
+                    {
+                        src: '/images/slider/live_4.png'
+                    }
                 ]
             }
         );
     }
 });
+
+router.get('/live',function (req, res) {
+    res.json(
+        {
+            status: 200,
+            message: "这是一个JSON接口",
+            imgSrc: [
+                {
+                    src: '/images/slider/live_2.png'
+                },
+                {
+                    src: '/images/slider/live_4.png'
+                },
+                {
+                    src: '/images/slider/live_5.png'
+                },
+                {
+                    src: '/images/slider/live_3.png'
+                },
+                {
+                    src: '/images/slider/live_1.png'
+                }
+            ]
+        }
+    );
+})
 
 module.exports = router;

@@ -5,6 +5,12 @@
     <link rel='stylesheet' href='/stylesheets/reset.css'/>
     <link rel='stylesheet' href='/assets/font-awesome/css/font-awesome.css'/>
     <link rel='stylesheet' href='/stylesheets/style.css'/>
+
+    <script src="/javascripts/jquery/jquery-1.11.3.js"></script>
+    <script src="/javascripts/utils.js"></script>
+    <script src="/javascripts/animate.js"></script>
+    <script src="/javascripts/widge.js"></script>
+    <script src="/javascripts/laytpl/laytpl.js"></script>
 </head>
 <body>
 <!-- 顶部登录条 -->
@@ -13,204 +19,128 @@
 <!-- 头部搜索区域 -->
 <%- include common/top-search.ejs %>
 
-<div class="fs">
-    <div class="fs-inner">
-        <!-- 分类导航  -->
-        <div class="fs-left">
-            <ul class="cate-menu">
-                <% for (var i = 0; i < 7; i++) { %>
-                <li class="cate-menu-item">
-                    <a href="javascript:void 0;">家用电器</a>
-                    <span class="cate-menu-line">/</span>
-                    <a href="javascript:void 0;">电脑办公</a>
-                </li>
-                <li class="cate-menu-item">
-                    <a href="javascript:void 0;">运动</a>
-                    <span class="cate-menu-line">/</span>
-                    <a href="javascript:void 0;">户外</a>
-                    <span class="cate-menu-line">/</span>
-                    <a href="javascript:void 0;">钟表</a>
-                </li>
-                <% } %>
-                <li class="cate-menu-item" data-index="15">
-                    <a href="javascript:void 0;">家用电器</a>
-                    <span class="cate-menu-line">/</span>
-                    <a href="javascript:void 0;">电脑办公</a>
-                </li>
-            </ul>
-            <div class="cate-pop" style="display: none">
-                <% for (var j = 0; j < 7; j++) { %>
-                <%- include common/side-nav-con.ejs %>
-                <% } %>
-                <div class="cate-part clearfix" id="cate-item-<%= 2*j + 1 %>" style="display: none">
-                    <div class="cate-part-col1">
-                        <div class="cate-tit">
-                            <a href="javascripts:void 0;">赛事 ></a>
-                            <a href="javascripts:void 0;">运动城 ></a>
-                            <a href="javascripts:void 0;">户外馆 ></a>
-                            <a href="javascripts:void 0;">健身房 ></a>
-                            <a href="javascripts:void 0;">骑行馆 ></a>
-                            <a href="javascripts:void 0;">钟表行 ></a>
-                        </div>
-                        <div class="cate-detail">
-                            <% for (var k = 0; k < 10; k++) { %>
-                            <dl class="cate-detail-item">
-                                <dt class="cate-detail-tit">
-                                    <a href="javascript:void 0;">运动鞋包 ></a>
-                                </dt>
-                                <dd class="cate-detail-con">
-                                    <% for(var i = 0; i < 10; i++) { %>
-                                    <a class="cate-detail-con-lk" href="javascript:void 0;">跑步鞋</a>
-                                    <% } %>
-                                </dd>
-                            </dl>
-                            <% } %>
-                        </div>
-                    </div>
-                    <div class="cate-part-col2">
-                        <div class="cate-brand">
-                            <% for(var i = 0; i < 8; i++) { %>
-                            <a href="javascript:void 0;" class="cate-brand-lk"><img width="83" height="35" src="/images/slider/FitTime.png"></a>
-                            <% } %>
-                        </div>
-                        <div class="cate-promotion">
-                            <a href="javascript:void 0;" class="cate-promotion-lk"><img src="/images/slider/sport_shoes.jpg"></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- 轮播图 -->
-        <div class="fs-center">
-            <!-- Slider -->
-            <div id="slider_wrap" class="slider-main">
-                <div class="inner">
-
-                </div>
-                <ul class="focusList">
-
-                </ul>
-                <a class="slide-left" href="javascript:void 0;"><i class="fa fa-arrow-left"></i></a>
-                <a class="slide-right" href="javascript:void 0;"><i class="fa fa-arrow-right"></i></a>
-            </div>
-            <div class="slider-extend"></div>
-        </div>
-        <!-- 轮播图右侧选项卡 -->
-        <div class="fs-right">
-
-        </div>
-    </div>
-</div>
+<!-- 导航banner -->
+<%- include common/banner.ejs %>
 
 <!-- 秒杀 -->
-<div id="seckill" class="m-b">
-    <div class="sk-inner">
-        <div class="box-hd clearfix">
-            <div class="box-hd-col1">
-                <i class="box_hd_dec"></i>
-                <i class="box_hd_icon"></i>
-                <h3 class="box_tit">京东秒杀</h3>
-                <a class="box_sunmit" href="javascript:;">总有你想不到的低价 <i class="submit_arrow"></i></a>
-            </div>
-            <div class="box-hd-col2">
-                <div class="sk-cd">
-                    <span class="sk-cd-tip">当前场次</span>
-                    <div class="sk-cd-main">
-                        <div class="cd-item cd_hour"></div>
-                        <div class="cd-split">
-                            <i class="dot top"></i>
-                            <i class="dot bottom"></i>
-                        </div>
-                        <div class="cd-item cd_minute"></div>
-                        <div class="cd-split">
-                            <i class="dot top"></i>
-                            <i class="dot bottom"></i>
-                        </div>
-                        <div class="cd-item cd_second"></div>
-                    </div>
-                    <span class="sk-cd-tip">后结束抢购</span>
-                </div>
-            </div>
-        </div>
-        <div class="box-bd clearfix">
-            <div class="sk-list-wrapper">
-                <ul class="J_sk_list sk-list clearfix">
+<%- include common/seckill.ejs %>
 
-                </ul>
-                <div class="sk-controls">
-                    <a class="sk-controls-left" href="javascript:void 0;"><i class="fa fa-arrow-left"></i></a>
-                    <a class="sk-controls-right" href="javascript:void 0;"><i class="fa fa-arrow-right"></i></a>
-                </div>
-                <div class="split"></div>
-            </div>
-            <a class="sk-special" href="javascript:void 0;">
-                <img src="/images/goods_items/sk_special.jpg">
+<!-- 发现好货 排行榜 -->
+<%- include common/findGoods.ejs %>
+
+<!-- 领券中心 -->
+<div id="coupon" class="m-b">
+    <div class="coupon-inner w">
+        <div class="coupon-hd">
+            <a class="coupon-entry" href="javascript:void 0;">
+                <h3 class="coupon-tit">领券中心</h3>
+                <span class="coupon-gap"></span>
+                <p class="coupon-txt">没抢到？</p>
+                <p class="coupon-txt">可以去看看更多优惠券</p>
+                <span class="coupon-btn">前往领券中心 <i class="coupon-icon"></i></span>
             </a>
+        </div>
+        <div class="coupon-bd">
+            <ul class="coupon-list clearfix">
+                <li class="coupon-item">
+                    <a href="javascript:void 0;" class="coupon-item-lk">
+                        <div class="coupon-info">
+                            <p class="price"><i>￥</i>1000</p>
+                            <p class="desc"><span>仅可购买格力品牌部分自营商品</span></p>
+                            <p class="limit"><span>消费满8000元可用</span></p>
+                            <p class="more">更多好券</p>
+                        </div>
+                        <img src="/images/goods_items/coupon_item_img1.webp" class="coupon-img">
+                    </a>
+                    <span class="coupon-item-shadow"></span>
+                </li>
+            </ul>
         </div>
     </div>
 </div>
 
-<div id="findGoods" class="m-b">
-    <div class="find-inner clearfix">
-        <div class="find-col1">
-            <div class="box-hd clearfix">
-                <i class="arrow"></i>
-                <i class="dec"></i>
-                <h3 class="tit">发现好货</h3>
-                <a class="submit" href="javascript:void 0;" target="_blank">发现品质生活 <i class="arrow-right"></i></a>
-            </div>
-            <div class="box-bd clearfix">
-                <ul class="find-list clearfix">
+<!-- rec_1 -->
+<div id="rec_1" class="rec m-b">
+    <div class="rec-inner w">
+        <ul class="rec-list"></ul>
+    </div>
+</div>
 
-                </ul>
-            </div>
-        </div>
-        <div class="find-col2">
-            <div class="box-hd clearfix">
-                <i class="arrow"></i>
-                <i class="dec"></i>
-                <h3 class="tit">品牌头条</h3>
-                <a class="submit" href="javascript:void 0;" target="_blank">大牌资讯全掌握 <i class="arrow-right"></i></a>
-            </div>
-            <div class="box-bd clearfix">
-                <div class="brand-top clearfix">
-
-                </div>
-                <div class="brand-bottom">
-
-                </div>
-            </div>
-        </div>
-        <div class="find-col3">
-            <div class="box-hd clearfix">
-                <i class="arrow"></i>
-                <i class="dec"></i>
-                <h3 class="tit">排行榜</h3>
-                <a class="submit" href="javascript:void 0;" target="_blank">网罗全民挚爱 <i class="arrow-right"></i></a>
-            </div>
-            <div class="box-bd clearfix">
-                <div class="top-tab">
-                    <div class="top-tab-head clearfix">
-
-                    </div>
-                    <div class="top-tab-content">
-
-                    </div>
-                </div>
-            </div>
+<!-- 享品质 -->
+<div id="life" class="life m-b">
+    <div class="life-tit">
+        <div class="tit-inner w">
+            <h3>享品质</h3>
         </div>
     </div>
+    <div class="life-inner w">
+        <ul class="life-list clearfix">
+            <li id="j-live" class="life-item life-live">
+                <div class="inner"></div>
+                <ul class="focusList"></ul>
+                <a class="slide-left" href="javascript:void 0;"></a>
+                <a class="slide-right" href="javascript:void 0;"></a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- rec_2 -->
+<div id="rec_2" class="rec m-b">
+    <div class="rec-inner w">
+        <ul class="rec-list"></ul>
+    </div>
+</div>
+
+<!-- 爱生活 -->
+<div id="cloth" class="cloth m-b">
+    <div class="tit">
+        <div class="tit-inner w">
+            <h3>爱生活</h3>
+        </div>
+    </div>
+    <div class="cloth-inner w clearfix" id="cloth_view">
+
+    </div>
+</div>
+
+<!-- 家电馆 搞机派 -->
+<div id="pc" class="pc m-b">
+    <div class="phone-inner w clearfix" id="pc_view">手机
+
+    </div>
+</div>
+
+<!-- 楼层导航 -->
+<div id="lift" class="lift">
+    <ul class="lift-list">
+        <li class="lift-item"><a class="lift-btn" href="javascript:;"><span>享品质</span></a></li>
+        <li class="lift-item"><a class="lift-btn" href="javascript:;"><span>服饰美妆</span></a></li>
+        <li class="lift-item"><a class="lift-btn" href="javascript:;"><span>家电手机</span></a></li>
+        <li class="lift-item"><a class="lift-btn" href="javascript:;"><span>电脑数码</span></a></li>
+        <li class="lift-item"><a class="lift-btn" href="javascript:;"><span>3C运动</span></a></li>
+        <li class="lift-item"><a class="lift-btn" href="javascript:;"><span>爱吃</span></a></li>
+        <li class="lift-item"><a class="lift-btn" href="javascript:;"><span>母婴家居</span></a></li>
+        <li class="lift-item"><a class="lift-btn" href="javascript:;"><span>图书汽车</span></a></li>
+        <li class="lift-item"><a class="lift-btn" href="javascript:;"><span>虚拟</span></a></li>
+        <li class="lift-item"><a class="lift-btn" href="javascript:;"><span>还没逛够</span></a></li>
+        <li class="lift-item lift-item-top"><a class="lift-btn" href="javascript:;"><span>顶部</span></a></li>
+    </ul>
 </div>
 </body>
 </html>
-<script src="/javascripts/jquery/jquery-1.11.3.js"></script>
-<script src="/javascripts/utils.js"></script>
-<script src="/javascripts/animate.js"></script>
-<script src="/javascripts/widge.js"></script>
+
+<%- include common/mod.ejs %>
 
 <script src="/javascripts/top-login.js"></script>
 <script src="/javascripts/top-search.js"></script>
 <script src="/javascripts/sliderClass.js"></script>
 <script src="/javascripts/seckill.js"></script>
 <script src="/javascripts/findGoods.js"></script>
+<script src="/javascripts/coupon.js"></script>
+<script src="/javascripts/recClass.js"></script>
+<script src="/javascripts/eachFloor.js"></script>
+<script src="/javascripts/lift.js"></script>
+
+
 
